@@ -50,8 +50,8 @@ jobs:
         with:
           host: ${{ secrets.TENCENT_CVM_IP }}
           username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
           port: 22
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ${{ secrets.REMOTE_PATH }}
             rm -rf build  # 删除旧的 build 文件夹
