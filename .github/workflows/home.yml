@@ -56,9 +56,9 @@ jobs:
           # key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ${{ secrets.REMOTE_PATH }}
-            rm -rf build  # 删除旧的 build 文件夹
+            sudo rm -rf build  # 删除旧的 build 文件夹
             tar -xzf build.tar.gz  # 解压新上传的文件
-            rm -f build.tar.gz  # 删除压缩文件
+            sudo rm -f build.tar.gz  # 删除压缩文件
             sudo systemctl restart nginx  # 重启 Nginx 服务以应用更改
 
       # Step 8: 检查部署状态
