@@ -39,8 +39,9 @@ jobs:
         with:
           host: ${{ secrets.TENCENT_CVM_IP }}
           username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
           port: 22
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "build.tar.gz"  # 本地上传文件
           target: "${{ secrets.REMOTE_PATH }}"  # 上传到服务器上的目录
 
@@ -50,8 +51,9 @@ jobs:
         with:
           host: ${{ secrets.TENCENT_CVM_IP }}
           username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
           port: 22
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ${{ secrets.REMOTE_PATH }}
             rm -rf build  # 删除旧的 build 文件夹
@@ -65,8 +67,9 @@ jobs:
         with:
           host: ${{ secrets.TENCENT_CVM_IP }}
           username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
           port: 22
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             echo "Deployment finished on ${{ secrets.TENCENT_CVM_IP }}"
             sudo systemctl status nginx
